@@ -2,17 +2,14 @@ import io.restassured.response.Response;
 import model.Comment;
 import model.Post;
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static core.CustomApiClient.doGetResonse;
 
-@Execution(ExecutionMode.CONCURRENT)
 public class GetRequestPostsById extends BaseTest {
 
     @Test
@@ -26,7 +23,7 @@ public class GetRequestPostsById extends BaseTest {
         List<Post> postList = Arrays.asList(response.getBody().as(Post[].class));
         int numberOfPostActual = postList.size();
 
-        Assertions.assertEquals(numberOfPostExpected, numberOfPostActual);
+        Assert.assertEquals(numberOfPostExpected, numberOfPostActual);
     }
 
     @Test
@@ -47,7 +44,7 @@ public class GetRequestPostsById extends BaseTest {
 
         Post actualPost = response.getBody().as(Post.class);
 
-        Assertions.assertEquals(expectedPost, actualPost);
+        Assert.assertEquals(expectedPost, actualPost);
     }
 
     @Test
@@ -64,7 +61,7 @@ public class GetRequestPostsById extends BaseTest {
         List<Comment> commentsList = Arrays.asList(response.getBody().as(Comment[].class));
         int numberOfPostActual = commentsList.size();
 
-        Assertions.assertEquals(numberOfCommentsExpected, numberOfPostActual);
+        Assert.assertEquals(numberOfCommentsExpected, numberOfPostActual);
     }
 
     @Test
@@ -80,6 +77,6 @@ public class GetRequestPostsById extends BaseTest {
         List<Comment> commentsList = Arrays.asList(response.getBody().as(Comment[].class));
         int numberOfPostActual = commentsList.size();
 
-        Assertions.assertEquals(numberOfCommentsExpected, numberOfPostActual);
+        Assert.assertEquals(numberOfCommentsExpected, numberOfPostActual);
     }
 }

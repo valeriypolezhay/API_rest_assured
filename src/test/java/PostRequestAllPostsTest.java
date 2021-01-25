@@ -1,8 +1,6 @@
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,12 +9,11 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
-@Execution(ExecutionMode.CONCURRENT)
 public class PostRequestAllPostsTest extends BaseTest {
 
     public static Map<String, Object> jsonAsMap = new HashMap<>();
 
-    @BeforeEach
+    @BeforeTest
     public void preparePayload() {
         jsonAsMap.put("userId", 9998);
         jsonAsMap.put("id", 1234);

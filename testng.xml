@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Custom suite" parallel="classes" verbose="1" >
+    <test name="Regression"   >
+        <classes>
+            <class name="DeleteRequestTest"/>
+            <class name="GetRequestPostsById"/>
+            <class name="PatchRequestTest"/>
+            <class name="PostRequestAllPostsTest"/>
+            <class name="PutRequestTest"/>
+        </classes>
+    </test>
+</suite>
