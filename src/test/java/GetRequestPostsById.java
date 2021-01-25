@@ -13,7 +13,7 @@ import java.util.List;
 import static core.CustomApiClient.doGetResonse;
 
 @Execution(ExecutionMode.CONCURRENT)
-public class PostsById extends BaseTest {
+public class GetRequestPostsById extends BaseTest {
 
     @Test
     public void getAllPostsTest() {
